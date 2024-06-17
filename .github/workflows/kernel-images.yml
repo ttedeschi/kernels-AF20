@@ -40,7 +40,7 @@ jobs:
           context: ./kernel-mkShapesRDF/
           outputs: "type=registry,push=true"
           tags: |
-            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-mkShapesRDF:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-mkshapesrdf:${{ env.RELEASE_VERSION }}
           file: ./kernel-mkShapesRDF/Dockerfile
           platforms: linux/amd64
 #          build-args: "NOTEBOOK_VERSION=${{ env.RELEASE_VERSION }}"
