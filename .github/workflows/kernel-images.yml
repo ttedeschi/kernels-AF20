@@ -43,4 +43,3 @@ jobs:
             ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-mkshapesrdf:${{ env.RELEASE_VERSION }}
           file: ./kernel-mkShapesRDF/Dockerfile
           platforms: linux/amd64
-#          build-args: "NOTEBOOK_VERSION=${{ env.RELEASE_VERSION }}"
