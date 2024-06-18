@@ -17,7 +17,3 @@ RUN git clone https://gitlab.cern.ch/cms-analysis/general/mkShapesRDF.git /code/
 
 RUN cd /code/ && \
     ./install.sh docker
-    #mkdir xrdfs_locallib && \
-    #cd xrdfs_locallib && \
-    #rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./ && \
-    #cd ..
