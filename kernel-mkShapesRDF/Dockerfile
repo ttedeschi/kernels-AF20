@@ -1,4 +1,4 @@
-FROM dodasts/root-in-docker:v6.30-test
+FROM ghcr.io/comp-dev-cms-ita/kernel-ROOT:latest
 
 WORKDIR /code
 
