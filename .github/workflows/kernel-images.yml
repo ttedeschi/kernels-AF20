@@ -107,9 +107,6 @@ jobs:
         id: get_repo_owner
         run: echo ::set-output name=repo_owner::$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
       - uses: cvmfs-contrib/github-action-cvmfs@v4
-      - name: Take lib files from CVMFS
-        run: |
-          ls /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib
       - name: Build container kernel-mkShapesRDF
         uses: docker/build-push-action@v2
         with:
