@@ -41,6 +41,7 @@ jobs:
           outputs: "type=registry,push=true"
           tags: |
             ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-root:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-root:latest
           file: ./kernel-ROOT/Dockerfile
           platforms: linux/amd64
   kernel-Coffea:
@@ -79,6 +80,7 @@ jobs:
           outputs: "type=registry,push=true"
           tags: |
             ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-coffea:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-coffea:latest
           file: ./kernel-Coffea/Dockerfile
           platforms: linux/amd64
   kernel-mkShapesRDF:
@@ -118,6 +120,7 @@ jobs:
           outputs: "type=registry,push=true"
           tags: |
             ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-mkshapesrdf:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-mkshapesrdf:latest
           file: ./kernel-mkShapesRDF/Dockerfile
           platforms: linux/amd64
   kernel-PocketCoffea:
@@ -157,5 +160,6 @@ jobs:
           outputs: "type=registry,push=true"
           tags: |
             ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-pocketcoffea:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-pocketcoffea:latest
           file: ./kernel-PocketCoffea/Dockerfile
           platforms: linux/amd64
