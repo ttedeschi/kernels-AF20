@@ -40,7 +40,7 @@ jobs:
           context: ./kernel-ROOT/
           outputs: "type=registry,push=true"
           tags: |
-            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-ROOT:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-root:${{ env.RELEASE_VERSION }}
           file: ./kernel-ROOT/Dockerfile
           platforms: linux/amd64
   kernel-Coffea:
@@ -78,7 +78,7 @@ jobs:
           context: ./kernel-Coffea/
           outputs: "type=registry,push=true"
           tags: |
-            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-Coffea:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-coffea:${{ env.RELEASE_VERSION }}
           file: ./kernel-Coffea/Dockerfile
           platforms: linux/amd64
   kernel-mkShapesRDF:
@@ -156,6 +156,6 @@ jobs:
           context: ./kernel-PocketCoffea/
           outputs: "type=registry,push=true"
           tags: |
-            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-PocketCoffea:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ steps.get_repo_owner.outputs.repo_owner }}/kernel-pocketcoffea:${{ env.RELEASE_VERSION }}
           file: ./kernel-PocketCoffea/Dockerfile
           platforms: linux/amd64
