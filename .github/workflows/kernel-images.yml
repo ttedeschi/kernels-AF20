@@ -109,8 +109,7 @@ jobs:
       - uses: cvmfs-contrib/github-action-cvmfs@v4
       - name: Take lib files from CVMFS
         run: |
-          pwd
-          readlink -f /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib
+          rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./xrdfs_locallib/
       - name: Build container kernel-mkShapesRDF
         uses: docker/build-push-action@v2
         with:
