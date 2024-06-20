@@ -73,10 +73,6 @@ RUN apt-get -y install davix
 
 RUN conda install -c conda-forge -y root xrootd
 
-RUN sed -i '152a\
-    set(VDT_LIBRARY "/opt/conda/lib/libvdt.so" CACHE INTERNAL "set VDT_LIBRARY env var")\n\
-    set(VDT_INCLUDE_DIR "/opt/conda/include" CACHE INTERNAL "set VDT_INCLUDE_DIR env var")' /opt/conda/cmake/ROOTConfig.cmake
-
 RUN echo /usr/local/lib/root >> /etc/ld.so.conf && ldconfig
 ENV PYTHONPATH /usr/local/lib/root:$PYTHONPATH
 ENV CLING_STANDARD_PCH none
