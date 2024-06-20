@@ -7,8 +7,6 @@ on:
 jobs:
   kernel-ROOT:
     runs-on: ubuntu-latest
-    env:
-        working-director: /code
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -27,13 +25,6 @@ jobs:
       - name: Get Repo Owner
         id: get_repo_owner
         run: echo ::set-output name=repo_owner::$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
-      - uses: cvmfs-contrib/github-action-cvmfs@v4
-      - name: Take lib files from CVMFS
-        run: |
-          mkdir xrdfs_locallib
-          cd xrdfs_locallib
-          rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./
-          cd ..
       - name: Build container kernel-ROOT
         uses: docker/build-push-action@v2
         with:
@@ -46,8 +37,6 @@ jobs:
           platforms: linux/amd64
   kernel-Coffea:
     runs-on: ubuntu-latest
-    env:
-        working-director: /code
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -66,13 +55,6 @@ jobs:
       - name: Get Repo Owner
         id: get_repo_owner
         run: echo ::set-output name=repo_owner::$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
-      - uses: cvmfs-contrib/github-action-cvmfs@v4
-      - name: Take lib files from CVMFS
-        run: |
-          mkdir xrdfs_locallib
-          cd xrdfs_locallib
-          rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./
-          cd ..
       - name: Build container kernel-Coffea
         uses: docker/build-push-action@v2
         with:
@@ -86,8 +68,6 @@ jobs:
   kernel-mkShapesRDF:
     needs: kernel-ROOT
     runs-on: ubuntu-latest
-    env:
-        working-director: /code
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -109,10 +89,7 @@ jobs:
       - uses: cvmfs-contrib/github-action-cvmfs@v4
       - name: Take lib files from CVMFS
         run: |
-          mkdir xrdfs_locallib
-          cd xrdfs_locallib
-          rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./
-          cd ..
+          rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./kernel-mkShapesRDF/xrdfs_locallib
       - name: Build container kernel-mkShapesRDF
         uses: docker/build-push-action@v2
         with:
@@ -126,8 +103,6 @@ jobs:
   kernel-PocketCoffea:
     needs: kernel-Coffea
     runs-on: ubuntu-latest
-    env:
-        working-director: /code
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -146,13 +121,6 @@ jobs:
       - name: Get Repo Owner
         id: get_repo_owner
         run: echo ::set-output name=repo_owner::$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
-      - uses: cvmfs-contrib/github-action-cvmfs@v4
-      - name: Take lib files from CVMFS
-        run: |
-          mkdir xrdfs_locallib
-          cd xrdfs_locallib
-          rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./
-          cd ..
       - name: Build container kernel-PocketCoffea
         uses: docker/build-push-action@v2
         with:
