@@ -19,7 +19,7 @@ RUN sed -i '152a\
     set(VDT_LIBRARY "/opt/conda/lib/libvdt.so" CACHE INTERNAL "set VDT_LIBRARY env var")\n\
     set(VDT_INCLUDE_DIR "/opt/conda/include" CACHE INTERNAL "set VDT_INCLUDE_DIR env var")' /opt/conda/cmake/ROOTConfig.cmake
 
-COPY ${PWD}/xrdfs_locallib/ /code/xrdfs_locallibo/
+COPY ./xrdfs_locallib/ /code/xrdfs_locallibo/
 
 RUN cd /code/ && \
     ./install.sh docker && \
