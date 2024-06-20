@@ -1,4 +1,4 @@
-FROM dodasts/root-in-docker:v6.30-test
+FROM ghcr.io/comp-dev-cms-ita/kernel-root
 
 WORKDIR /code
 
@@ -14,10 +14,6 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt install krb5-user -y libkrb5-dev libauthen-krb5-perl   
 
 RUN git clone https://gitlab.cern.ch/cms-analysis/general/mkShapesRDF.git /code/
-
-RUN sed -i '152a\
-    set(VDT_LIBRARY "/opt/conda/lib/libvdt.so" CACHE INTERNAL "set VDT_LIBRARY env var")\n\
-    set(VDT_INCLUDE_DIR "/opt/conda/include" CACHE INTERNAL "set VDT_INCLUDE_DIR env var")' /opt/conda/cmake/ROOTConfig.cmake
 
 COPY ./xrdfs_locallib/ /code/xrdfs_locallib/
 
