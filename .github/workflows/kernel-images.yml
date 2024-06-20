@@ -86,8 +86,6 @@ jobs:
   kernel-mkShapesRDF:
     #needs: kernel-ROOT
     runs-on: ubuntu-latest
-    env:
-        working-director: /code
     steps:
       - name: Checkout
         uses: actions/checkout@v2
