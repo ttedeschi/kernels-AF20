@@ -15,9 +15,9 @@ RUN apt-get update && \
 
 RUN git clone https://gitlab.cern.ch/cms-analysis/general/mkShapesRDF.git /code/
 
-#RUN sed -i '152a\
-#    set(VDT_LIBRARY "/opt/conda/lib/libvdt.so" CACHE INTERNAL "set VDT_LIBRARY env var")\n\
-#    set(VDT_INCLUDE_DIR "/opt/conda/include" CACHE INTERNAL "set VDT_INCLUDE_DIR env var")' /opt/conda/cmake/ROOTConfig.cmake
+RUN sed -i '152a\
+    set(VDT_LIBRARY "/opt/conda/lib/libvdt.so" CACHE INTERNAL "set VDT_LIBRARY env var")\n\
+    set(VDT_INCLUDE_DIR "/opt/conda/include" CACHE INTERNAL "set VDT_INCLUDE_DIR env var")' /opt/conda/cmake/ROOTConfig.cmake
 
 COPY ./xrdfs_locallib/ /code/xrdfs_locallib/
 
