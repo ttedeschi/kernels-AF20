@@ -11,7 +11,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
 
-RUN conda install -c conda-forge -y python=3.11 xrootd
+RUN conda install -c conda-forge -y python=3.11 xrootd htcondor
 #RUN conda install conda-libmamba-solver
 
 ENV TINI_VERSION v0.19.0
