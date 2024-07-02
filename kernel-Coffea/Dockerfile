@@ -29,7 +29,7 @@ RUN python3 -m pip install \
     htcondor \
     click \
     ipython \
-    "dask[complete]==2023.9.0" \
+    "dask[complete]==2024.4.1" \
     dask-jobqueue
 
 WORKDIR /usr/local/share/comp-dev-cms-ita
@@ -68,7 +68,7 @@ RUN apt-get update && \
 
 RUN python3 -m pip install ipykernel ipywidgets matplotlib
 
-RUN apt-get -y install davix
+RUN apt-get -y install davix vim
 
 RUN python3 -m pip install coffea==0.7.22 \ 
                               numba>=0.57.0 \ 
