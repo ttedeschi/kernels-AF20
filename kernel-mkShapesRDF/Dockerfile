@@ -1,11 +1,11 @@
-FROM ghcr.io/comp-dev-cms-ita/kernel-root
+FROM ghcr.io/tommasodiotalevi/kernel-root
 
 WORKDIR /code
 
 USER root
 
 RUN apt-get update && \
-    apt-get install -y vim rsync && \
+    apt-get install -y vim rsync sqlite3 && \
     apt-get install -y voms-clients && \
     apt-get -y install python3.11-venv ninja-build && \
     echo "deb http://archive.ubuntu.com/ubuntu/ jammy main universe" >> /etc/apt/sources.list.d/xrootd.list && \
