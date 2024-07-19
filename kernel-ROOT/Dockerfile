@@ -76,6 +76,7 @@ RUN python3 -m pip install ipykernel ipywidgets matplotlib
 RUN apt-get -y install davix
 
 RUN conda install -c conda-forge -y root xrootd boost-cpp
+RUN conda install -c conda-forge -y libsqlite --force-reinstall
 
 RUN echo /usr/local/lib/root >> /etc/ld.so.conf && ldconfig
 ENV PYTHONPATH /usr/local/lib/root:$PYTHONPATH
