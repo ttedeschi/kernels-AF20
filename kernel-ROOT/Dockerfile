@@ -11,6 +11,11 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
 
+RUN conda init bash
+RUN echo "conda activate base" >> ~/.bashrc
+
+SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
+
 RUN conda install -c conda-forge -y python=3.11
 #RUN conda install conda-libmamba-solver
 
@@ -70,7 +75,7 @@ RUN python3 -m pip install ipykernel ipywidgets matplotlib
 
 RUN apt-get -y install davix
 
-RUN conda install -c conda-forge -y root xrootd
+RUN conda install -c conda-forge -y root xrootd boost-cpp
 
 RUN echo /usr/local/lib/root >> /etc/ld.so.conf && ldconfig
 ENV PYTHONPATH /usr/local/lib/root:$PYTHONPATH
