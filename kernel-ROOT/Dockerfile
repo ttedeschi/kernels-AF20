@@ -16,8 +16,7 @@ RUN echo "conda activate base" >> ~/.bashrc
 
 SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
 
-RUN conda install -c conda-forge -y python=3.11
-#RUN conda install conda-libmamba-solver
+RUN conda install -c conda-forge -y python=3.11 root boost-cpp
 
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
@@ -74,9 +73,6 @@ RUN apt-get update && \
 RUN python3 -m pip install ipykernel ipywidgets matplotlib
 
 RUN apt-get -y install davix
-
-RUN conda install -c conda-forge -y libsqlite --force-reinstall
-RUN conda install -c conda-forge -y root xrootd boost-cpp
 
 RUN echo /usr/local/lib/root >> /etc/ld.so.conf && ldconfig
 ENV PYTHONPATH /usr/local/lib/root:$PYTHONPATH
