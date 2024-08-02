@@ -33,7 +33,7 @@ RUN python3 -m pip install \
     htcondor \
     click==7.1.2 \
     ipython \
-    "dask[complete]==2021.11.1" \
+    "dask[complete]==2024.4.1" \
     dask-jobqueue==0.7.3
 
 WORKDIR /usr/local/share/comp-dev-cms-ita
