@@ -31,7 +31,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive TZ=Europe/Zurich #apt-get i
 
 RUN python3 -m pip install \
     htcondor \
-    click==7.1.2 \
+    click \
     ipython \
     "dask[complete]==2024.4.1" \
     dask-jobqueue==0.7.3
