@@ -34,7 +34,8 @@ RUN python3 -m pip install \
     click \
     ipython \
     "dask[complete]==2024.4.1" \
-    dask-jobqueue
+    dask-jobqueue \
+    dogpile.cache
 
 WORKDIR /usr/local/share/comp-dev-cms-ita
 
@@ -78,4 +79,6 @@ RUN echo /usr/local/lib/root >> /etc/ld.so.conf && ldconfig
 ENV PYTHONPATH /usr/local/lib/root:$PYTHONPATH
 ENV CLING_STANDARD_PCH none
 
-RUN python3 -m pip install rucio-clients
+RUN python3 -m pip install rucio-clients 
+
+RUN python3 -m pip install git+https://gitlab.cern.ch/cp3-cms/CMSJMECalculators.git@0.3.0
