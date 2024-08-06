@@ -81,4 +81,4 @@ ENV CLING_STANDARD_PCH none
 
 RUN python3 -m pip install rucio-clients 
 
-RUN python3 -m pip install git+https://gitlab.cern.ch/cp3-cms/CMSJMECalculators.git@0.3.0
+RUN python3 -m pip install git+https://gitlab.cern.ch/cp3-cms/CMSJMECalculators.git@0.2.0
