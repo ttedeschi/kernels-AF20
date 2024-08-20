@@ -85,5 +85,7 @@ RUN python3 -m pip install git+https://gitlab.cern.ch/cp3-cms/CMSJMECalculators.
 
 RUN conda install --solver=classic conda-forge::conda-libmamba-solver conda-forge::libmamba conda-forge::libmambapy conda-forge::libarchive
 
+RUN python3 -m pip install correctionlib
+
 ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base"]
 
