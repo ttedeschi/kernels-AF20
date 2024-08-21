@@ -87,7 +87,7 @@ RUN conda install --solver=classic conda-forge::conda-libmamba-solver conda-forg
 
 RUN python3 -m pip install correctionlib
 
-RUN conda install -c conda-forge bokeh==2.4.3
+RUN conda install -c conda-forge bokeh==2.4.3 -y
 
 ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base"]
 
