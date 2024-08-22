@@ -11,7 +11,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 # Put conda in path so we can use conda activate
 ENV PATH=$CONDA_DIR/bin:$PATH
 
-RUN conda install -c conda-forge -y python=3.11 xrootd htcondor
+RUN conda install -c conda-forge -y python=3.11 xrootd htcondor bokeh==3.0.1
 #RUN conda install conda-libmamba-solver
 
 ENV TINI_VERSION v0.19.0
@@ -91,6 +91,5 @@ RUN python3 -m pip install coffea==0.7.22 \
 RUN python3 -m pip install rucio-clients
 
 RUN conda install --solver=classic conda-forge::conda-libmamba-solver conda-forge::libmamba conda-forge::libmambapy conda-forge::libarchive
-RUN conda install -c conda-forge bokeh==3.0.1  -y
 
 RUN sed -i 's/condor_submit/condor_submit -spool/g' /opt/conda/lib/python3.11/site-packages/dask_jobqueue/htcondor.py
