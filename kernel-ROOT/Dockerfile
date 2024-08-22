@@ -16,7 +16,7 @@ RUN echo "conda activate base" >> ~/.bashrc
 
 SHELL ["conda", "run", "-n", "base", "/bin/bash", "-c"]
 
-RUN conda install -c conda-forge -y python=3.11 root boost-cpp htcondor
+RUN conda install -c conda-forge -y python=3.11 root boost-cpp htcondor bokeh==3.0.1
 
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
@@ -86,8 +86,6 @@ RUN python3 -m pip install git+https://gitlab.cern.ch/cp3-cms/CMSJMECalculators.
 RUN conda install --solver=classic conda-forge::conda-libmamba-solver conda-forge::libmamba conda-forge::libmambapy conda-forge::libarchive
 
 RUN python3 -m pip install correctionlib
-
-RUN conda install -c conda-forge bokeh==3.0.1  -y
 
 ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base"]
 
