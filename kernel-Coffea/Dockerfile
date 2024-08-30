@@ -64,7 +64,11 @@ RUN apt-get update && \
     graphviz-dev libavahi-compat-libdnssd-dev \
     libldap2-dev libxml2-dev libkrb5-dev wget \
     libgsl0-dev git python3 python3-pip curl sudo \
-    libblas-dev protobuf-compiler
+    libblas-dev protobuf-compiler voms-clients
+
+RUN openssl rand -writerand /root/.rnd
+
+ENV X509_CERT_DIR=/cvmfs/cms.cern.ch/grid/etc/grid-security/certificates
 
 RUN python3 -m pip install ipykernel ipywidgets matplotlib
 
