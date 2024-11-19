@@ -1,4 +1,4 @@
-FROM ghcr.io/comp-dev-cms-ita/kernel-root
+FROM ghcr.io/ttedeschi/kernel-root
 
 WORKDIR /code
 
