@@ -90,7 +90,7 @@ jobs:
       - name: Take lib files from CVMFS
         run: |
           rsync -ar --exclude 'python3.9' --exclude 'libROO*' --exclude 'libRoo*' /cvmfs/sft.cern.ch/lcg/views/LCG_103/x86_64-ubuntu2004-gcc9-opt/lib ./kernel-mkShapesRDF/xrdfs_locallib
-          cp /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG ./kernel-mkShapesRDF/POG 
+          cp -r /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG ./kernel-mkShapesRDF/POG 
       - name: Build container kernel-mkShapesRDF
         uses: docker/build-push-action@v2
         with:
