@@ -94,6 +94,6 @@ RUN python3 -m pip install coffea==0.7.22 \
 
 RUN python3 -m pip install rucio-clients
 
-RUN conda install --solver=classic conda-forge::conda-libmamba-solver conda-forge::libmamba conda-forge::libmambapy conda-forge::libarchive
+RUN conda install conda-forge::conda-libmamba-solver conda-forge::libmamba conda-forge::libmambapy conda-forge::libarchive
 
 RUN sed -i 's/condor_submit/condor_submit -spool/g' /opt/conda/lib/python3.11/site-packages/dask_jobqueue/htcondor.py
