@@ -21,5 +21,7 @@ RUN sed -i '152a\
 
 COPY ./xrdfs_locallib/ /code/xrdfs_locallib/
 
+COPY ./POG/ /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG
+
 RUN cd /code/ && \
     ./install.sh docker
