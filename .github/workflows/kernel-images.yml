@@ -66,7 +66,7 @@ jobs:
           file: ./kernel-Coffea/Dockerfile
           platforms: linux/amd64
   kernel-mkShapesRDF:
-    #needs: kernel-ROOT
+    needs: kernel-ROOT
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
