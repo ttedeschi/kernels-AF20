@@ -20,6 +20,7 @@ RUN sed -i '152a\
     set(VDT_INCLUDE_DIR "/opt/conda/include" CACHE INTERNAL "set VDT_INCLUDE_DIR env var")' /opt/conda/cmake/ROOTConfig.cmake
 
 COPY ./xrdfs_locallib/ /code/xrdfs_locallib/
+COPY ./POG/ /cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG
 
 RUN cd /code/ && \
     ./install.sh docker
