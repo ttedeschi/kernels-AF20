@@ -152,6 +152,6 @@ RUN mv dasgoclient_amd64 /usr/local/go/bin/dasgoclient
 
 #RUN python3 -m pip install git+https://gitlab.cern.ch/cp3-cms/CMSJMECalculators.git
 
-ENV LD_LIBRARY_PATH=/opt/conda/lib/
+ENV LD_LIBRARY_PATH=/opt/conda/lib/:/usr/local/share/comp-dev-cms-ita
 
 ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "base"]
